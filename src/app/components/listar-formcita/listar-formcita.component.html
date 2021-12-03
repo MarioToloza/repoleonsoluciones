@@ -1,0 +1,48 @@
+<div class=" container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> Formulario de citas </span>
+                    <button class="  btn btn-success float-end btn-dark mt-2  " routerLink="/crear-formcita">  Nueva Cita  </button>
+
+                    <table *ngIf="listFormcitas.length > 0" class="table table-dark mt-5" >
+                        <thead>
+                            <tr>
+                            <!--<th scope="col">id</th>-->
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Servicio</th>
+                                <th scope="col">Observaciones</th>
+                                <th scope="col">Tecnico</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let formcita of listFormcitas" class="table-active">
+                            <!--<td>{{formcita.id_cita}}</td>-->
+                                <td>{{formcita.fecha_cita}}</td>
+                                <td>{{formcita.estado_cita}}</td>
+                                <td>{{formcita.servicio}}</td>
+                                <td>{{formcita.observaciones}}</td>
+                                <td>{{formcita.tecnico}}</td>
+                                <td>
+                                    <i (click)="eliminarFormcita(formcita._id)" class="far fa-trash-alt"></i>
+                                </td>
+                                <td>
+                                    <i [routerLink]="['/editar-formcita',formcita._id] " class="far fa-edit"></i>
+                                </td>
+                            </tr>
+                            
+                           
+                        </tbody>
+                    </table>
+                    <h5 *ngIf="listFormcitas.length == 0">No hay Citas para mostrar</h5>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
